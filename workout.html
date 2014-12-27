@@ -5,12 +5,14 @@
         <style type="text/css">
         body
         {
+            clear: both;
             margin: 0;
-            width: 130px;
-            height: 75px;
-            font-family: verdana;
+            padding: 0;
+            width: 200px;
+            height: auto;
             font-weight: bold;
             font-size: 20px;
+            border: 2px dashed green;
         }
         #gadgetContent
         {
@@ -20,18 +22,78 @@
             text-align: center;
             overflow: hidden;
         }
+
+        .date
+        {
+            margin: auto;
+            width: 28%;
+            overflow: hidden;
+            float: left;
+            text-align: center;
+            background-color: yellow;
+            border: 3px solid red;
+        }
+        .dropdown
+        {
+            float: right;
+            margin: auto;
+            width: 65%;
+            background-color: blue;
+            border: 3px solid red;
+        }
+        .clear
+        {
+            clear:both;
+        }
         </style>
         <script type="text/jscript" language="jscript">
             // Initialize the gadget.
+            var month = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
             function init()
             {
-                var d = new Date();
-                document.getElementById("gadgetContent").innerHTML = d;
+                var date = new Date();
+                var m = date.getMonth();
+                var d = date.getDate();
+                console.log("check");
+                var cont = document.getElementById("overall");
+                if(cont.getElementsByClassName)
+                {
+
+                    var da = cont.getElementsByClassName("date");   
+
+                    for(var i = 0; i < da.length; i++)
+                    {
+                        var string = month[m] + " " + d;
+                        var l = da[i];
+                        console.log(l);
+                        l.innerHTML = string;
+                        d = d + 1;
+                    }
+                }
+                else{
+                    alert("Your browser doesn't support this");
+                }   
             }
         </script>
     </head>
 	
     <body onload="init()">
-            <span id="gadgetContent">Hello World!</span>
+        <div id = "overall">
+            <div class = "date" id = "left">
+                <p> hello </p>
+            </div>
+            <div class = "dropdown">
+                <p> Hello World! </p>
+            </div>
+            <div class = "clear"> </div>
+            <div class = "date">
+
+            </div>
+
+            <div class = "dropdown">
+                <p> check </p>
+            </div>
+
+        </div>
     </body>
 </html>
