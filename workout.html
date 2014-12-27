@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=Unicode" />
+        <title>Hello World</title>
+        <style type="text/css">
+        body
+        {
+            margin: 0;
+            width: 130px;
+            height: 75px;
+            font-family: verdana;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        #gadgetContent
+        {
+            margin-top: 20px;
+            width: 130px;
+            vertical-align: middle;
+            text-align: center;
+            overflow: hidden;
+        }
+        </style>
+        <script type="text/jscript" language="jscript">
+            // Initialize the gadget.
+            function init()
+            {
+                var d = new Date();
+                document.getElementById("gadgetContent").innerHTML = d;
+            }
+        </script>
+    </head>
+	
+    <body onload="init()">
+            <span id="gadgetContent">Hello World!</span>
+    </body>
+</html>
